@@ -1,0 +1,1259 @@
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4fff4;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+}
+
+/* HEADER */
+.gov-header {
+  background: linear-gradient(90deg, #1b5e20, #2e7d32);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.gov-header nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.gov-header nav a:hover {
+  color: #ffd54f;
+}
+
+/* HERO CAROUSEL  */
+.hero {
+  height: 75vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 1s;
+  pointer-events: none;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(55%);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.hero-text h2 {
+  font-size: 42px;
+  letter-spacing: 1px;
+}
+
+/* BUTTON */
+.btn {
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: linear-gradient(45deg, #43a047, #1b5e20);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #66bb6a;
+}
+
+/* moving images */
+.marquee {
+  overflow: hidden;
+  margin-top: 25px;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 40px;
+  animation: scroll 20s linear infinite;
+}
+
+.marquee-content img {
+  width: 200px;
+  height: 130px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* FEATURES */
+
+.features {
+  padding: 70px 50px;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #1b5e20;
+}
+
+/* HORIZONTAL ALIGNMENT WITHOUT SCROLL */
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* CARD SIZE */
+.feature-card {
+  width: 280px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  padding: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+/* FIXED IMAGE SIZE */
+.feature-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.feature-card h3 {
+  color: #2e7d32;
+  margin: 10px 0;
+}
+
+.feature-card p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* HEADER & NAVIGATION */
+header {
+  background: #1b5e20;
+  color: white;
+  padding: 18px 30px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+nav a {
+  color: white;
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: #66bb6a;
+}
+
+/* HERO SECTION */
+.hero {
+  background: url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854") no-repeat center/cover;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero h2 {
+  position: relative;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  position: relative;
+  background: #2e7d32;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
+}
+
+.btn:hover {
+  background: #43a047;
+}
+
+/* FEATURES SECTION */
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 20px;
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  width: 280px;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* PAGE BANNER */
+.page-banner {
+  background: #e8f5e9;
+  padding: 40px;
+  text-align: center;
+}
+
+.page-banner h2 {
+  font-size: 28px;
+  color: #1b5e20;
+}
+
+/* FORMS  */
+form {
+  max-width: 600px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #2e7d32;
+  outline: none;
+}
+
+/* CONTACT PAGE */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 40px 20px;
+}
+
+.contact-card {
+  background: white;
+  width: 300px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* STORAGE CENTERS */
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+#searchInput {
+  width: 280px;
+  /* Reduced width */
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+#searchInput:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 8px rgba(46, 125, 50, 0.3);
+}
+
+.centers-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 40px 20px;
+  justify-content: center;
+}
+
+.centers-list {
+  flex: 1;
+  min-width: 320px;
+}
+
+.center-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.map-container {
+  flex: 1;
+  min-width: 320px;
+}
+
+#map {
+  height: 450px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* ADMIN LOGIN PAGE */
+.admin-body {
+  background: #e8f5e9;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+}
+
+.login-card {
+  background: white;
+  padding: 40px;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.login-card h2 {
+  margin-bottom: 10px;
+  color: #1b5e20;
+}
+
+.sub-text {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.login-footer {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #777;
+}
+
+/* ADMIN DASHBOARD */
+.dashboard-container {
+  padding: 40px 20px;
+}
+
+.dashboard-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1b5e20;
+}
+
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: white;
+  padding: 25px;
+  width: 250px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1b5e20;
+}
+
+.table-container {
+  width: 95%;
+  margin: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+table th {
+  background: #2e7d32;
+  color: white;
+  padding: 12px;
+}
+
+table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+table tr:hover {
+  background: #f1f8e9;
+}
+
+/* FOOTER */
+footer {
+  background: #1b5e20;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* RESPONSIVE DESIGN & HAMBURGER MENU */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+@media (max-width: 992px) {
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .centers-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Header & Navigation changes for mobile */
+  .gov-header {
+    position: relative;
+    padding: 15px 20px;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+  }
+
+  .gov-header nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #1b5e20;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px 0;
+    z-index: 100;
+  }
+
+  .gov-header nav.show {
+    display: flex;
+  }
+
+  .gov-header nav a {
+    margin: 10px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+  }
+
+  #langToggleBtn {
+    margin: 10px 20px;
+    width: calc(100% - 40px);
+  }
+
+  /* Form & Layout Stacking */
+  .hero {
+    height: 50vh;
+  }
+
+  .hero-text h2 {
+    font-size: 24px;
+    padding: 0 15px;
+  }
+
+  /* Make forms and cards full width and vertical */
+  form,
+  .card,
+  .admin-card,
+  .login-card,
+  .department-details,
+  .booking-card {
+    width: 95% !important;
+    max-width: none !important;
+    padding: 20px !important;
+    margin: 15px auto !important;
+  }
+
+  form input,
+  form textarea,
+  form select {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .input-row,
+  .stats-row,
+  .feature-grid,
+  .contact-container,
+  .centers-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .feature-card,
+  .stat-card,
+  .contact-card {
+    width: 95%;
+    margin-bottom: 15px;
+  }
+
+  /* Tables Scrollable */
+  .table-container,
+  .booking-records {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 18px;
+  }
+}
+
+/*  CONTAINER LAYOUT */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px;
+  justify-content: center;
+}
+
+/* CARD  */
+.card {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  width: 450px;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+/* FORM STYLING  */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-card h2 {
+  text-align: center;
+  color: #1b5e20;
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+  height: 70px;
+}
+
+.input-row {
+  display: flex;
+  gap: 15px;
+}
+
+.calculation-box,
+.release-box {
+  background: #f1f8e9;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.submit-btn {
+  padding: 12px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #1b5e20;
+}
+
+/* IMAGE PREVIEW */
+.preview-img {
+  width: 80px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+/* ADMIN LOGIN CARD */
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.admin-card {
+  background: white;
+  padding: 30px 35px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.admin-card h2 {
+  color: #2e7d32;
+  margin-bottom: 25px;
+}
+
+.admin-card .input-group {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.admin-card input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.admin-card .submit-btn {
+  padding: 12px;
+  width: 100%;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admin-card .submit-btn:hover {
+  background: #1b5e20;
+}
+
+/* ADMIN DASHBOARD STATS */
+.stats-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  text-align: center;
+}
+
+.stat-card h3 {
+  margin-bottom: 10px;
+  color: #2e7d32;
+}
+
+.stat-card p {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* BOOKING TABLE */
+.booking-records {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.booking-records table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.booking-records th,
+.booking-records td {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 14px;
+}
+
+.booking-records th {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* ============================= */
+/* DEPARTMENT ADDRESS SECTION   */
+/* ============================= */
+
+.department-section {
+  padding: 40px 20px;
+
+  text-align: center;
+}
+
+.department-section h2 {
+  color: #1b5e20;
+  margin-bottom: 20px;
+}
+
+.department-details {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+  background: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.department-details p {
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.department-details span {
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+/* Center the Send a Message heading */
+.contact-left h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1b5e20;
+}
+
+.centers-table-section h2 {
+  text-align: center;
+  color: #1b5e20;
+  margin-bottom: 25px;
+}
+
+textarea {
+  resize: none;
+  height: 70px;
+}
+
+.input-row {
+  display: flex;
+  gap: 15px;
+}
+
+.calculation-box,
+.release-box {
+  background: #f1f8e9;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.submit-btn {
+  padding: 12px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #1b5e20;
+}
+
+/* IMAGE PREVIEW */
+.preview-img {
+  width: 80px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+/* ADMIN LOGIN CARD */
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.admin-card {
+  background: white;
+  padding: 30px 35px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.admin-card h2 {
+  color: #2e7d32;
+  margin-bottom: 25px;
+}
+
+.admin-card .input-group {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.admin-card input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.admin-card .submit-btn {
+  padding: 12px;
+  width: 100%;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admin-card .submit-btn:hover {
+  background: #1b5e20;
+}
+
+/* ADMIN DASHBOARD STATS */
+.stats-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  text-align: center;
+}
+
+.stat-card h3 {
+  margin-bottom: 10px;
+  color: #2e7d32;
+}
+
+.stat-card p {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* BOOKING TABLE */
+.booking-records {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.booking-records table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.booking-records th,
+.booking-records td {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 14px;
+}
+
+.booking-records th {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* ============================= */
+/* DEPARTMENT ADDRESS SECTION   */
+/* ============================= */
+
+.department-section {
+  padding: 40px 20px;
+
+  text-align: center;
+}
+
+.department-section h2 {
+  color: #1b5e20;
+  margin-bottom: 20px;
+}
+
+.department-details {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+  background: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.department-details p {
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.department-details span {
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+/* Center the Send a Message heading */
+.contact-left h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1b5e20;
+}
+
+.centers-table-section h2 {
+  text-align: center;
+  color: #1b5e20;
+  margin-bottom: 25px;
+}
+
+/* ============================================= */
+/* RESPONSIVE DESIGN & HAMBURGER MENU           */
+/* ============================================= */
+
+/* Mobile & Tablet Refinements */
+@media (max-width: 992px) {
+  .hero-text h2 {
+    font-size: 32px;
+  }
+
+  .feature-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Sticky Header on Mobile */
+  .gov-header {
+    padding: 10px 15px;
+    height: auto;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .gov-header h1 {
+    font-size: 18px;
+  }
+
+  .hamburger {
+    display: block !important;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  /* Mobile Navigation Menu */
+  .gov-header nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #1b5e20;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 15px 0;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+
+  .gov-header nav.show {
+    display: flex;
+  }
+
+  .gov-header nav a {
+    margin: 8px 20px;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+  }
+
+  #langToggleBtn {
+    margin: 15px auto !important;
+    width: 80% !important;
+    display: block !important;
+  }
+
+  /* Layout Adjustments */
+  .hero {
+    height: 350px;
+  }
+
+  .hero-text h2 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .features {
+    padding: 40px 15px;
+  }
+
+  .feature-card {
+    width: 100% !important;
+    max-width: 350px;
+    margin: 0 auto 20px !important;
+  }
+
+  .stats-row,
+  .stats-container,
+  .contact-container,
+  .centers-container,
+  .input-row {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .stat-card,
+  .contact-card,
+  .card,
+  .booking-card,
+  .login-card,
+  .admin-card {
+    width: 100% !important;
+    max-width: 100%;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+  }
+
+  form {
+    width: 95% !important;
+    padding: 20px !important;
+    margin: 15px auto !important;
+  }
+
+  /* Table Accessibility on Mobile */
+  .table-container,
+  .booking-records {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  }
+
+  table {
+    min-width: 800px;
+    /* Force scroll on small screens */
+    font-size: 13px;
+  }
+
+  th,
+  td {
+    padding: 10px 8px;
+  }
+
+  #map {
+    height: 300px !important;
+  }
+
+  .hero-text .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h2 {
+    font-size: 20px;
+  }
+
+  .gov-header h1 {
+    font-size: 16px;
+  }
+}

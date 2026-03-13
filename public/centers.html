@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Storage Centers - Kuru Kalan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="gov-header">
+    <h1 data-lang-key="nav-title">🌾 Kuru Kalan</h1>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <nav>
+      <a href="index.html" data-lang-key="nav-home">Home</a>
+      <a href="book.html" data-lang-key="nav-book">Book a Slot</a>
+      <a href="admin-login.html" data-lang-key="nav-admin">Admin Login</a>
+      <a href="centers.html" data-lang-key="nav-centers">Storage Centers</a>
+      <a href="contact.html" data-lang-key="nav-contact">Contact</a>
+      <button id="langToggleBtn"
+        style="background:#ffd54f;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;font-weight:bold;margin-left:10px;">தமிழ்</button>
+    </nav>
+  </header>
+
+  <section class="top-map">
+    <div id="map"></div>
+  </section>
+
+  <section class="centers-table-section">
+    <h2 data-lang-key="centers-list-title">Storage Centers List</h2>
+
+    <div class="search-wrapper">
+      <input type="text" id="searchInput" list="districtsList" placeholder="🔍 Search district or center name"
+        data-lang-key="placeholder-search" />
+      <datalist id="districtsList">
+        <option value="Ariyalur"></option>
+        <option value="Chengalpattu"></option>
+        <option value="Chennai"></option>
+        <option value="Coimbatore"></option>
+        <option value="Cuddalore"></option>
+        <option value="Dharmapuri"></option>
+        <option value="Dindigul"></option>
+        <option value="Erode"></option>
+        <option value="Kallakurichi"></option>
+        <option value="Kanchipuram"></option>
+        <option value="Kanyakumari"></option>
+        <option value="Karur"></option>
+        <option value="Krishnagiri"></option>
+        <option value="Madurai"></option>
+        <option value="Mayiladuthurai"></option>
+        <option value="Nagapattinam"></option>
+        <option value="Namakkal"></option>
+        <option value="Nilgiris"></option>
+        <option value="Perambalur"></option>
+        <option value="Pudukkottai"></option>
+        <option value="Ramanathapuram"></option>
+        <option value="Ranipet"></option>
+        <option value="Salem"></option>
+        <option value="Sivaganga"></option>
+        <option value="Tenkasi"></option>
+        <option value="Thanjavur"></option>
+        <option value="Theni"></option>
+        <option value="Thoothukudi"></option>
+        <option value="Tiruchirappalli"></option>
+        <option value="Tirunelveli"></option>
+        <option value="Tirupathur"></option>
+        <option value="Tiruppur"></option>
+        <option value="Tiruvallur"></option>
+        <option value="Tiruvannamalai"></option>
+        <option value="Tiruvarur"></option>
+        <option value="Vellore"></option>
+        <option value="Viluppuram"></option>
+        <option value="Virudhunagar"></option>
+      </datalist>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th data-lang-key="th-sno">S.No</th>
+            <th data-lang-key="th-district">District</th>
+            <th data-lang-key="th-center-name">Center Name</th>
+            <th data-lang-key="th-avail-containers">Available Containers</th>
+            <th data-lang-key="th-mobile">Mobile</th>
+          </tr>
+        </thead>
+
+        <tbody id="centerTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer data-lang-key="footer-text">© 2026 Government of Tamil Nadu | Kuru Kalan Project</footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="lang.js"></script>
+  <script src="data.js"></script>
+  <script src="places.js"></script>
+</body>
+
+</html>

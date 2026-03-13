@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+<head>
+  <title data-lang-key="nav-book">Smart Paddy Storage - Booking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="gov-header">
+    <h1 data-lang-key="nav-title">🌾 Kuru Kalan</h1>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <nav>
+      <a href="index.html" data-lang-key="nav-home">Home</a>
+      <a href="book.html" data-lang-key="nav-book">Book a Slot</a>
+      <a href="admin-login.html" data-lang-key="nav-admin">Admin Login</a>
+      <a href="centers.html" data-lang-key="nav-centers">Storage Centers</a>
+      <a href="contact.html" data-lang-key="nav-contact">Contact</a>
+      <button id="langToggleBtn"
+        style="background:#ffd54f;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;font-weight:bold;margin-left:10px;">தமிழ்</button>
+    </nav>
+  </header>
+
+  <section class="booking-section">
+    <div class="booking-card">
+      <br />
+      <h2 data-lang-key="book-title">Slot Booking</h2>
+
+      <form id="bookingForm" enctype="multipart/form-data">
+        <div class="form-group">
+          <label data-lang-key="label-name">Name</label>
+          <input type="text" name="name" required data-lang-key="placeholder-name" />
+        </div>
+
+        <div class="form-group">
+          <label data-lang-key="label-contact">Contact Number</label>
+          <input type="text" name="contact" pattern="[0-9]{10}" required data-lang-key="placeholder-phone" />
+        </div>
+
+
+        <div class="form-group">
+          <label data-lang-key="label-address">Address</label>
+          <textarea name="address" rows="3" data-lang-key="placeholder-address"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label data-lang-key="label-photo">Upload Photo</label>
+          <input type="file" name="photo" />
+        </div>
+
+        <div class="form-group">
+          <label data-lang-key="label-landarea">Land Area</label>
+          <input type="number" name="land_value" id="land" placeholder="Enter land area" required
+            data-lang-key="placeholder-land" />
+        </div>
+
+        <div class="form-group">
+          <label data-lang-key="label-landunit">Select Land Measurement Unit</label>
+          <select name="land_unit" id="landUnit" required>
+            <option value="hectare" data-lang-key="opt-hectare">Hectare</option>
+            <option value="acre" data-lang-key="opt-acre">Acre</option>
+            <option value="veli" data-lang-key="opt-veli">Veli</option>
+            <option value="maa" data-lang-key="opt-maa">Maa</option>
+            <option value="kuli" data-lang-key="opt-kuli">Kuli</option>
+            <option value="cent" data-lang-key="opt-cent">Cent</option>
+            <option value="sqm" data-lang-key="opt-sqm">Square Meter</option>
+            <option value="sqft" data-lang-key="opt-sqft">Square Feet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-lang-key="label-csize">Select Container Size</label>
+          <select name="container_size" required>
+            <option value="100sac" data-lang-key="opt-100sac">100 Sacks (5000 kg)</option>
+            <option value="50sac" data-lang-key="opt-50sac">50 Sacks (2500 kg)</option>
+          </select>
+        </div>
+
+        <div class="calculation-box">
+          <p>
+            🌾 <span data-lang-key="calc-est-paddy">Estimated Paddy:</span> <strong><span id="paddy">0</span> <span
+                data-lang-key="calc-kg">kg</span></strong>
+          </p>
+          <p>
+            📦 <span data-lang-key="calc-req-containers">Containers Required:</span>
+            <strong><span id="containers">0</span></strong>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label data-lang-key="label-bdate">Booking Date</label>
+          <input type="date" name="start_date" required />
+        </div>
+
+        <button type="submit" class="submit-btn" data-lang-key="btn-submit-booking">Submit Booking</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FORM SUBMISSION SCRIPT -->
+  <script src="lang.js"></script>
+  <script src="book.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Admin Dashboard - Smart Paddy Storage</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="gov-header">
+    <h1 data-lang-key="nav-title">🌾 Kuru Kalan</h1>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="book.html">Book a Slot</a>
+      <a href="admin-login.html">Admin Login</a>
+      <a href="centers.html">Storage Centers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="admin-container">
+    <!-- Container Stats Cards -->
+    <div class="stats-row">
+      <div class="stat-card" id="totalContainers">
+        <h3 data-lang-key="stat-total">Total Containers</h3>
+        <p>500</p>
+      </div>
+
+      <div class="stat-card" id="bookedContainers">
+        <h3 data-lang-key="stat-bk">Booked Containers</h3>
+        <p>0</p>
+      </div>
+
+      <div class="stat-card" id="availableContainers">
+        <h3 data-lang-key="stat-avail">Available Containers</h3>
+        <p>0</p>
+      </div>
+    </div>
+
+    <!-- Farmer Booking Records Table -->
+    <div class="booking-records">
+      <h2 style="color:#1b5e20;" data-lang-key="nav-book">Farmer Bookings</h2>
+      <div class="table-container">
+        <table id="bookingTable">
+          <thead>
+            <tr>
+              <th data-lang-key="th-id">Booking ID</th>
+              <th data-lang-key="th-photo">Photo</th>
+              <th data-lang-key="th-farmer">Name</th>
+              <th data-lang-key="th-mobile">Contact</th>
+              <th data-lang-key="label-address">Address</th>
+              <th data-lang-key="th-land-ha">Land (ha)</th>
+              <th data-lang-key="th-paddy-kg">Estimated Paddy (kg)</th>
+              <th data-lang-key="th-csize">Container Size</th>
+              <th data-lang-key="th-req-qty">Containers Required</th>
+              <th data-lang-key="th-date">Booking Date</th>
+              <th data-lang-key="th-action">Action</th>
+            </tr>
+          </thead>
+          <tbody id="bookingTbody">
+            <!-- Populated dynamically via admin_dashboard.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Approved Bookings History (previous days) -->
+    <div class="booking-records" style="margin-top:40px; text-align:center;">
+      <h2 style="color:#1b5e20;" data-lang-key="history-title"> Approved History</h2>
+      <p style="color:#666; font-size:13px; margin-bottom:20px;" data-lang-key="history-desc">
+        Bookings approved on previous days are archived here automatically.
+      </p>
+      
+      <button id="downloadPdfBtn" class="btn" style="background:#1b5e20; color:white; padding:12px 24px; border:none; border-radius:5px; cursor:pointer; font-size:16px; font-weight:bold;">
+        📄 Download History (PDF)
+      </button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <script src="lang.js"></script>
+  <script src="admin_dashboard.js"></script>
+</body>
+
+</html>

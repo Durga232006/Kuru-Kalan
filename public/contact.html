@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact - Kuru Kalan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="gov-header">
+    <h1 data-lang-key="nav-title">🌾 Kuru Kalan</h1>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <nav>
+      <a href="index.html" data-lang-key="nav-home">Home</a>
+      <a href="book.html" data-lang-key="nav-book">Book a Slot</a>
+      <a href="admin-login.html" data-lang-key="nav-admin">Admin Login</a>
+      <a href="centers.html" data-lang-key="nav-centers">Storage Centers</a>
+      <a href="contact.html" data-lang-key="nav-contact">Contact</a>
+      <button id="langToggleBtn"
+        style="background:#ffd54f;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;font-weight:bold;margin-left:10px;">தமிழ்</button>
+    </nav>
+  </header>
+  <br />
+  <section class="contact-section">
+    <div class="contact-left">
+      <h2 data-lang-key="contact-msg-title">Send a Message</h2>
+
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Name" required data-lang-key="placeholder-name" />
+
+        <input type="email" id="email" placeholder="Email Address" required data-lang-key="placeholder-email" />
+
+        <input type="text" id="phone" placeholder="Phone Number" data-lang-key="placeholder-phone" />
+
+        <input type="text" id="subject" placeholder="Subject" data-lang-key="placeholder-subject" />
+
+        <textarea id="message" placeholder="Message" rows="4" data-lang-key="placeholder-message"></textarea>
+
+        <button type="submit" class="btn" data-lang-key="btn-send-msg">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="department-section">
+    <h2 data-lang-key="dept-title">Department of Agriculture</h2>
+
+    <div class="department-details">
+      <p>
+        <span data-lang-key="lbl-address">Address:</span> <span data-lang-key="val-address">Wallajah Road,
+          Chepauk,<br />
+          Chennai, Tamil Nadu 600005</span>
+      </p>
+
+      <p><span data-lang-key="lbl-phone">Phone:</span> 044-28583323</p>
+
+      <p><span data-lang-key="lbl-email">Email:</span> support@kurukalan.gov.in</p>
+
+      <p><span data-lang-key="lbl-website">Website:</span> www.kurukalan.gov.in</p>
+    </div>
+  </section>
+
+  <footer data-lang-key="footer-text">© 2026 Government of Tamil Nadu | Kuru Kalan Project</footer>
+
+  <script src="lang.js"></script>
+  <script src="contact.js"></script>
+</body>
+
+</html>
