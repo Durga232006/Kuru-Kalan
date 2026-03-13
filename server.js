@@ -48,7 +48,7 @@ app.get('/health', (req, res) => {
 });
 
 // Fallback for SPA/Deployment
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
     // If it's not an API call, serve the index.html
     if (!req.path.startsWith('/api')) {
         res.sendFile(path.join(__dirname, 'public', 'index.html'));
