@@ -2,20 +2,22 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/kurukalan';
-        await mongoose.connect(MONGO_URI);
-        console.log('Connected to MongoDB');
+        const MONGO_URI = process.env.MONGO_URI;
 
-        // Drop stale unique index from old schema version to prevent duplicate key errors
-        try {
-            await mongoose.connection.collection('bookings').dropIndex('booking_id_1');
-            console.log('Dropped stale booking_id_1 index.');
-        } catch (e) {
-            // Index doesn't exist or already dropped — safe to ignore
+        if (!MONGO_URI) {
+            throw new Error("❌ MONGO_URI is not defined in .env");
         }
+
+        await mongoose.connect(MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+
+        console.log("✅ MongoDB Connected Successfully");
+
     } catch (error) {
-        console.error('Database connection failed:', error.message);
-        console.log('Notice: MongoDB is not running locally. Database features will be unavailable.');
+        console.error("❌ MongoDB Connection Failed:", error.message);
+        process.exit(1); // stop server if DB fails
     }
 };
 
