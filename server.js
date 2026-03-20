@@ -22,14 +22,14 @@ app.use(helmet({
 
 // ✅ Rate Limiting
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 mins
+    windowMs: 15 * 60 * 1000,
     max: 100
 });
 app.use('/api', limiter);
 
-// ✅ CORS (IMPORTANT for Vercel frontend)
+// ✅ CORS
 app.use(cors({
-    origin: '*', // you can restrict to your Vercel URL later
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type']
 }));
@@ -44,16 +44,16 @@ if (!fs.existsSync(uploadsDir)) {
     fs.mkdirSync(uploadsDir);
 }
 
-// ✅ Static Files (Frontend)
+// ✅ Static Files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ✅ Serve uploaded files
+// ✅ Serve uploads
 app.use('/uploads', express.static(uploadsDir));
 
 // ✅ API Routes
 app.use('/api', apiRoutes);
 
-// ✅ Health Check (test backend)
+// ✅ Health Check
 app.get('/health', (req, res) => {
     res.status(200).json({
         status: 'OK',
@@ -62,9 +62,13 @@ app.get('/health', (req, res) => {
     });
 });
 
-// ✅ Fallback route (for frontend pages)
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// ✅ FIXED fallback (NO app.get('*'))
+app.use((req, res, next) => {
+    if (!req.path.startsWith('/api')) {
+        res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    } else {
+        next();
+    }
 });
 
 // ✅ Start Server
