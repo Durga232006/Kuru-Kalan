@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -15,12 +16,12 @@ const PORT = process.env.PORT || 5000;
 // ✅ Connect MongoDB
 connectDB();
 
-// ✅ Security Middleware
+// ✅ Security
 app.use(helmet({
     contentSecurityPolicy: false
 }));
 
-// ✅ Rate Limiting
+// ✅ Rate Limit
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 100
@@ -30,11 +31,10 @@ app.use('/api', limiter);
 // ✅ CORS
 app.use(cors({
     origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    allowedHeaders: ['Content-Type']
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH']
 }));
 
-// ✅ Body Parsing
+// ✅ Body Parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -44,36 +44,39 @@ if (!fs.existsSync(uploadsDir)) {
     fs.mkdirSync(uploadsDir);
 }
 
-// ✅ Static Files
+// ✅ Static files
 app.use(express.static(path.join(__dirname, 'public')));
-
-// ✅ Serve uploads
 app.use('/uploads', express.static(uploadsDir));
 
-// ✅ API Routes
+// ✅ API routes
 app.use('/api', apiRoutes);
+
+// ✅ ROOT ROUTE (Fix "Not Found" in Render)
+app.get('/', (req, res) => {
+    res.send("✅ Kuru Kalan Backend is Running Successfully");
+});
 
 // ✅ Health Check
 app.get('/health', (req, res) => {
-    res.status(200).json({
-        status: 'OK',
-        message: 'Server is running',
+    res.json({
+        status: "OK",
+        message: "Server is running",
         uptime: process.uptime()
     });
 });
 
-// ✅ FIXED fallback (NO app.get('*'))
-app.use((req, res, next) => {
+// ✅ Fallback (IMPORTANT FIX: avoid "*" error)
+app.use((req, res) => {
     if (!req.path.startsWith('/api')) {
         res.sendFile(path.join(__dirname, 'public', 'index.html'));
     } else {
-        next();
+        res.status(404).json({ message: "API route not found" });
     }
 });
 
 // ✅ Start Server
 app.listen(PORT, () => {
-    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
 
 module.exports = app;

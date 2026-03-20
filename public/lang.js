@@ -127,7 +127,8 @@ const translations = {
         "th-app-status": "Approval Status",
         "btn-app-today": "✅ Approved Today",
         "history-title": "📁 Approved History",
-        "history-desc": "Bookings approved on previous days are archived here automatically."
+        "history-desc": "Bookings approved on previous days are archived here automatically.",
+        "nav-title": "Kuru Kalan"
     },
     ta: {
         "nav-home": "முகப்பு",
@@ -255,7 +256,8 @@ const translations = {
         "th-app-status": "ஒப்புதல் நிலை",
         "btn-app-today": "✅ இன்று ஒப்புதல் அளிக்கப்பட்டது",
         "history-title": "📁 அங்கீகரிக்கப்பட்ட வரலாறு",
-        "history-desc": "முந்தைய நாட்களில் அங்கீகரிக்கப்பட்ட பதிவுகள் தானாகவே இங்கு மாற்றப்படும்."
+        "history-desc": "முந்தைய நாட்களில் அங்கீகரிக்கப்பட்ட பதிவுகள் தானாகவே இங்கு மாற்றப்படும்.",
+        "nav-title": "குரு களன்"
     }
 };
 
@@ -274,7 +276,12 @@ function applyTranslations(lang) {
                 el.placeholder = translations[lang][key];
             } else {
                 // Ensure placeholder handling and value inputs have priority
-                if (key.startsWith("placeholder-") && typeof el.placeholder !== "undefined") {
+                if (key === 'nav-title') {
+                    const img = el.querySelector('img');
+                    el.innerHTML = '';
+                    if (img) el.appendChild(img);
+                    el.appendChild(document.createTextNode(' ' + translations[lang][key]));
+                } else if (key.startsWith("placeholder-") && typeof el.placeholder !== "undefined") {
                     el.placeholder = translations[lang][key];
                 } else if (key.startsWith("val-") && el.tagName === "INPUT") {
                     el.value = translations[lang][key];

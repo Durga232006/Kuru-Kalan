@@ -7,8 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const paddyDisplay = document.getElementById("paddy");
   const containersDisplay = document.getElementById("containers");
 
-  // 🔹 Your Backend URL (IMPORTANT)
-  const API_BASE = "https://kuru-kalan-backend.onrender.com";
+  // 🔹 API Base URL (Dynamic for Local vs Vercel/Render)
+  const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const API_BASE = isLocal ? "http://localhost:5000" : "https://kuru-kalan-backend.onrender.com";
 
   // 🔹 Conversion rates
   const toHectare = {
