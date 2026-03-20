@@ -40,9 +40,11 @@ h4 {
 
 .gov-header nav {
   display: flex;
-  justify-content: space-around; /* Distribute buttons equally across the header */
+  justify-content: space-around;
+  /* Distribute buttons equally across the header */
   flex-grow: 1;
-  margin: 0 40px; /* Space between logo and first button, and last button and right edge */
+  margin: 0 40px;
+  /* Space between logo and first button, and last button and right edge */
 }
 
 .gov-header h1 {
