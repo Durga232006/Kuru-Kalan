@@ -1170,8 +1170,8 @@ textarea {
 
   /* Sticky Header on Mobile */
   .gov-header {
-    padding: 5px 15px;
-    /* Reduced vertical padding */
+    padding: 0 15px;
+    /* Removed vertical padding entirely */
     height: auto;
     flex-wrap: nowrap;
     /* Prevent items from wrapping in the header itself */
@@ -1186,9 +1186,9 @@ textarea {
   }
 
   .gov-header h1 img {
-    height: 55px;
-    /* Shrink logo for mobile header */
-    width: 55px;
+    height: 45px;
+    /* Further shrink logo for mobile header */
+    width: 45px;
   }
 
   .hamburger {
