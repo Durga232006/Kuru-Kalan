@@ -33,7 +33,7 @@ h4 {
   justify-content: space-between;
   /* Spread logo and nav to edges */
   align-items: center;
-  padding: 5px 5%;
+  padding: 5px 2%;
   /* Reduced from 10px */
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   position: sticky;
@@ -46,7 +46,7 @@ h4 {
   justify-content: space-around;
   /* Distribute buttons equally across the header */
   flex-grow: 1;
-  margin: 0 40px;
+  margin: 0;
   /* Space between logo and first button, and last button and right edge */
 }
 
@@ -56,15 +56,16 @@ h4 {
 }
 
 .gov-header h1 img {
-  height: 60px;
+  height: 80px;
   /* Reduced from 100px */
-  width: 60px;
+  width: 80px;
   /* Reduced from 100px */
   border-radius: 50%;
   object-fit: cover;
   z-index: 1001;
   transition: 0.3s;
   margin-right: 15px;
+  margin-bottom: 0;
 }
 
 .gov-header h1 img:hover {
