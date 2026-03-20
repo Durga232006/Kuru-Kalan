@@ -280,7 +280,8 @@ function applyTranslations(lang) {
                     const img = el.querySelector('img');
                     el.innerHTML = '';
                     if (img) el.appendChild(img);
-                    el.appendChild(document.createTextNode(' ' + translations[lang][key]));
+                    // Text removed per user request to only show logo
+                    // el.appendChild(document.createTextNode(' ' + translations[lang][key]));
                 } else if (key.startsWith("placeholder-") && typeof el.placeholder !== "undefined") {
                     el.placeholder = translations[lang][key];
                 } else if (key.startsWith("val-") && el.tagName === "INPUT") {

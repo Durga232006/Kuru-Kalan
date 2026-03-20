@@ -53,7 +53,7 @@ app.use('/api', apiRoutes);
 
 // ✅ ROOT ROUTE (Fix "Not Found" in Render)
 app.get('/', (req, res) => {
-    res.send("✅ Kuru Kalan Backend is Running Successfully");
+    res.send("✅ Backend is Running Successfully");
 });
 
 // ✅ Health Check

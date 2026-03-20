@@ -5,6 +5,16 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
+// Twilio Setup
+const twilio = require('twilio');
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const twilioPhone = process.env.TWILIO_PHONE_NUMBER;
+let twilioClient = null;
+if (accountSid && authToken) {
+    twilioClient = twilio(accountSid, authToken);
+}
+
 // Configure multer for file uploads in memory (to support Vercel serverless)
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
@@ -48,6 +58,15 @@ const handleBooking = async (req, res) => {
             return res.status(400).json({ message: 'Name and contact are required.' });
         }
 
+        // Prevent Duplicate Pending Bookings
+        const existingBooking = await Booking.findOne({
+            mobileNumber: contact,
+            status: 'Pending'
+        });
+        if (existingBooking) {
+            return res.status(400).json({ message: 'You already have a pending booking. Please wait for it to be processed before booking again.' });
+        }
+
         let photoUrl = '';
         if (req.file) {
             const base64Image = req.file.buffer.toString('base64');
@@ -69,7 +88,24 @@ const handleBooking = async (req, res) => {
         });
 
         await newBooking.save();
-        console.log(`[SMS] To: ${contact} - Dear ${name}, your booking request has been received. ID: ${newBooking._id}`);
+
+        // Send confirmation SMS
+        if (twilioClient && twilioPhone) {
+            try {
+                let formattedContact = contact.startsWith('+') ? contact : `+91${contact}`;
+                await twilioClient.messages.create({
+                    body: `Hello ${name}, your booking has been received successfully. We will contact you shortly.`,
+                    from: twilioPhone,
+                    to: formattedContact
+                });
+                console.log(`[SMS] Twilio message successfully sent to ${formattedContact}`);
+            } catch (smsErr) {
+                console.error('[SMS ERROR] Twilio failed to send:', smsErr.message);
+            }
+        } else {
+            console.log(`[MOCK SMS] To: ${contact} - Hello ${name}, your booking has been received successfully. We will contact you shortly. (Twilio keys not configured in .env)`);
+        }
+
         res.status(201).json({ message: 'Booking Submitted Successfully.', booking: newBooking });
     } catch (error) {
         console.error('Error creating booking:', error);
