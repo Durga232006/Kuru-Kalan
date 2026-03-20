@@ -1170,9 +1170,8 @@ textarea {
 
   /* Sticky Header on Mobile */
   .gov-header {
-    padding: 10px 15px 5px 15px;
-    /* Added top padding */
-    height: auto;
+    padding: 2px 8px;
+    /* Minimize space around logo */
     height: auto;
     flex-wrap: nowrap;
     /* Prevent items from wrapping in the header itself */
@@ -1190,6 +1189,7 @@ textarea {
     height: 50px;
     /* Further shrink logo for mobile header */
     width: 50px;
+    margin-right: 0;
   }
 
   .hamburger {
